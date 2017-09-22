@@ -14,29 +14,17 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-class MovieSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(max_length=100)
+class MovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = '__all__'
 
-    def create(self, validated_data):
-        return Movie.objects.create(**validated_data)
-    
-    def update(self, validated_data):
-        instance.title = validated_data.get('name', instance.name)
-        instance.save()
+class MovieTheatherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MovieTheather
+        fields = '__all__'
 
-class MovieTheatherSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(max_length=100)
-
-    def create(self, validated_data):
-        return MovieTheather.objects.create(**validated_data)
-    
-    def update(self, validated_data):
-        instance.title = validated_data.get('name', instance.name)
-        instance.save()
-
-class NowPlayingSerializer(serializers.Serializer):
+class NowPlayingSerializer(serializers.ModelSerializer):
     class Meta:
         model = NowPlaying
         fields = '__all__'
