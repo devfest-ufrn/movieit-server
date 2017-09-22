@@ -19,6 +19,21 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
+class MovieTheatherViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows movies to be viewed or edited.
+    """
+    queryset = MovieTheather.objects.all()
+    serializer_class = MovieTheatherSerializer
+
+class NowPlayingViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows movies to be viewed or edited.
+    """
+    queryset = NowPlaying.objects.all()
+    serializer_class = NowPlayingSerializer
+
+
 
 class GroupViewSet(viewsets.ModelViewSet):
     """

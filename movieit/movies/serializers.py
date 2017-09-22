@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from .models import *
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -23,3 +24,19 @@ class MovieSerializer(serializers.Serializer):
     def update(self, validated_data):
         instance.title = validated_data.get('name', instance.name)
         instance.save()
+
+class MovieTheatherSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(max_length=100)
+
+    def create(self, validated_data):
+        return MovieTheather.objects.create(**validated_data)
+    
+    def update(self, validated_data):
+        instance.title = validated_data.get('name', instance.name)
+        instance.save()
+
+class NowPlayingSerializer(serializers.Serializer):
+    class Meta:
+        model = NowPlaying
+        fields = '__all__'
