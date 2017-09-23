@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u!#_pa9gvr)gw1&^$zhx%fdg4c%mf=p$pjht&o6ntg=mys433k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -97,12 +97,13 @@ WSGI_APPLICATION = 'movieit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+  import dj_database_url
+
+  DATABASES = {
+      'default': dj_database_url.config(
+          default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+      )
+  }
 
 
 # Password validation
@@ -136,9 +137,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
