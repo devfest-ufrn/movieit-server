@@ -2,26 +2,37 @@
 
 ## Setup
 
-Tenha instalado o python e o pip
+-------------
+#### Requirements
+* Python 3.6+
+* Virtualenvwrapper
 
-Clone o projeto 
+-------------
+#### Set Up
+Clone esse projeto e crie um virtual environment:
+~~~~bash
+$ git clone https://github.com/devfest-ufrn/movie-it.git
+$ mkvirtualenv movieitvenv
+$ workon movieitvenv
+~~~~
+Install all dependencies
+~~~~bash
+$ pip install -r requirements.txt
+~~~~
+Setup database:
+~~~~bash
+cd movieit
+python manage.py makemigrations
+python manage.py migrate
+~~~~
+Testing:
+~~~~bash
+python manage.py test
+~~~~
 
-`https://github.com/devfest-ufrn/movie-it.git && cd movie-it`
+Running the app:
+~~~~bash
+$ python manage.py runserver
+~~~~
+Agora você pode ir até [http://localhost:8000](http://localhost:8000).
 
-Crie um ambiente virtual e ative-o
-
-`virtualenv myenv`
-`source myenv/bin/activate`
-
-Instale as dependências
-
-`pip install -r requirements.txt`
-
-Configure o banco de dados
-
-`python manage.py makemigrations`
-
-`python manage.py migrate`
-
-Rode o sistema
-`python manage.py runserver`
