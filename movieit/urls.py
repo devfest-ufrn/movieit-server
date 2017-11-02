@@ -20,6 +20,8 @@ from movieit.movies import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'partners_data', views.PartnersDataViewSet)
+router.register(r'rating', views.RatingViewSet)
 router.register(r'movies', views.MovieViewSet)
 router.register(r'movie_theathers', views.MovieTheatherViewSet)
 router.register(r'now_playing', views.NowPlayingViewSet)

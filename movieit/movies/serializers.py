@@ -14,15 +14,32 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
+
+### MOVIEIT ###
+
+class PartnersDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PartnersData
+        fields = '__all__'
+
+
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = '__all__'
+
+
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = '__all__'
 
+
 class MovieTheatherSerializer(serializers.ModelSerializer):
     class Meta:
         model = MovieTheather
         fields = '__all__'
+
 
 class NowPlayingSerializer(serializers.ModelSerializer):
     class Meta:
