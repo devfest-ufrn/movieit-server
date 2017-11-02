@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from .movies.urls import movie_routers
+from rest_framework import routers
+from .views import *
 
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-urlpatterns = [
-    url(r'^', include(movie_routers.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+movie_routers = routers.DefaultRouter()
+movie_routers.register(r'users', UserViewSet)
+movie_routers.register(r'groups', GroupViewSet)
+movie_routers.register(r'partners_data', PartnersDataViewSet)
+movie_routers.register(r'rating', RatingViewSet)
+movie_routers.register(r'movies', MovieViewSet)
+movie_routers.register(r'movie_theathers', MovieTheatherViewSet)
+movie_routers.register(r'now_playing', NowPlayingViewSet)
