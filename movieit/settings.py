@@ -30,38 +30,34 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_PART_APPS = [
     'rest_framework',
+    'rest_framework_swagger',
+]
+
+LOCAL_APPS = [
     'movieit',
     'movieit.movies',
 ]
+
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PART_APPS
 
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAdminUser',
     ],
-    '''
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    ),
-    '''
     'PAGE_SIZE': 10
 }
-
-
-LOCAL_APPS = [
-    'movies',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
