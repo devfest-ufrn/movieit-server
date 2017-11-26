@@ -23,13 +23,6 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 ### MOVIEIT ###
 
-class PartnersDataViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows movies to be viewed or edited.
-    """
-    queryset = PartnersData.objects.all()
-    serializer_class = PartnersDataSerializer
-
 
 class RatingViewSet(viewsets.ModelViewSet):
     """
@@ -54,10 +47,9 @@ class MovieTheatherViewSet(viewsets.ModelViewSet):
     queryset = MovieTheather.objects.all()
     serializer_class = MovieTheatherSerializer
 
-
-class NowPlayingViewSet(viewsets.ModelViewSet):
+class MovieGenreViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows movies to be viewed or edited.
     """
-    queryset = NowPlaying.objects.all()
-    serializer_class = NowPlayingSerializer
+    queryset = MovieGenre.objects.all()
+    serializer_class = MovieGenreSerializer

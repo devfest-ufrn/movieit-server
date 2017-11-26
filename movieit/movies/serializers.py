@@ -17,12 +17,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 ### MOVIEIT ###
 
-class PartnersDataSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PartnersData
-        fields = '__all__'
-
-
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
@@ -40,8 +34,8 @@ class MovieTheatherSerializer(serializers.ModelSerializer):
         model = MovieTheather
         fields = '__all__'
 
-
-class NowPlayingSerializer(serializers.ModelSerializer):
+class MovieGenreSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NowPlaying
+        model = MovieGenre
         fields = '__all__'
+        ordering = ['-id']
