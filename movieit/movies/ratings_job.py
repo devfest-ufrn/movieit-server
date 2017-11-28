@@ -27,3 +27,23 @@ def get_ratings(request):
             print("do something")
 
     return render(request)
+
+def init_movies(request):
+    r = requests.get('https://api-content.ingresso.com/v0/events/city/48/partnership/movieIT')
+    movies_json = r.json()
+
+    for m_j in movies_json['items']:
+        movie = Movie()
+
+        movie.title = m_j['title']
+        movie.ingresso_id = m_j['id']
+        movie.poster_portrait = m_j['images'][0]['url']
+        movie.poster_horizontal = m_j['images'][1]['url']
+        movie.synopsis = m_j['synopsis']
+        movie.cast = m_j['cast']
+        movie.director = m_j['director']
+        movie.duration = m_j['duration']
+        movie.content_rating = m_j['contentRating']
+        movie.save()
+
+    return render(request)
