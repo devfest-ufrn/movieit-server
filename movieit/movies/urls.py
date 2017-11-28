@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from rest_framework import routers
 from .views import *
-from ratings_job import get_ratings
 
 movie_routers = routers.DefaultRouter()
 movie_routers.register(r'users', UserViewSet)
@@ -24,8 +23,3 @@ movie_routers.register(r'groups', GroupViewSet)
 movie_routers.register(r'movies', MovieViewSet)
 movie_routers.register(r'movie_theathers', MovieTheatherViewSet)
 movie_routers.register(r'movie_genres', MovieGenreViewSet)
-
-urlpatterns = [
-    url(r'^', get_ratings),
-]
-
