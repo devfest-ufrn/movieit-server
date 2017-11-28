@@ -20,7 +20,6 @@ from .views import *
 movie_routers = routers.DefaultRouter()
 movie_routers.register(r'users', UserViewSet)
 movie_routers.register(r'groups', GroupViewSet)
-movie_routers.register(r'ratings', RatingViewSet)
 movie_routers.register(r'movies', MovieViewSet)
 movie_routers.register(r'movie_theathers', MovieTheatherViewSet)
 movie_routers.register(r'movie_genres', MovieGenreViewSet)

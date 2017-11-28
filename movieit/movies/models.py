@@ -1,20 +1,5 @@
 from django.db import models
 
-
-class Rating(models.Model):
-    choice_of_avaliation = (
-        ('%', 'Percentage'),
-        ('10', 'Base_10')
-    )
-
-    name = models.CharField(max_length=100)
-    #type = models.CharField(max_length=11, choices=choice_of_avaliation)
-    value = models.FloatField()
-
-    def __str__(self):
-        return self.name
-
-
 class MovieGenre(models.Model):
     name = models.CharField(max_length=20)
 
@@ -33,7 +18,9 @@ class Movie(models.Model):
     duration = models.IntegerField(default=0)
     genres = models.ManyToManyField(MovieGenre)
     content_rating = models.CharField(max_length=10, blank=True)
-    ratings = models.ManyToManyField(Rating)
+    imdb_rating = models.CharField(max_length=100,default="")
+    rotten_rating = models.CharField(max_length=100,default="")
+    metascore = models.CharField(max_length=100,default="")
 
     def __str__(self):
         return self.title

@@ -23,15 +23,6 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 ### MOVIEIT ###
 
-
-class RatingViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows movies to be viewed or edited.
-    """
-    queryset = Rating.objects.all()
-    serializer_class = RatingSerializer
-
-
 class MovieViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows movies to be viewed or edited.

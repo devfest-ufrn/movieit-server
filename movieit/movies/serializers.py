@@ -17,12 +17,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 ### MOVIEIT ###
 
-class RatingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rating
-        fields = '__all__'
-
-
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
