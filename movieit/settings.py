@@ -140,3 +140,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 LOGIN_URL = 'rest_framework:login'
 LOGOUT_URL = 'rest_framework:logout'
+
+#OMDB Key
+OMDB_KEY = '96e1864e'
